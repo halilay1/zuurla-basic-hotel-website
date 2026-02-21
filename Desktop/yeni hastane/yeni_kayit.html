@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeni Hasta Kaydı - Largen Diagnostic</title>
+    <link rel="stylesheet" href="yeni_kayit.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-circle">
+                        <div class="logo-symbol">L</div>
+                    </div>
+                    <span class="logo-text">
+                        <span class="diagnostic-text">DIAGNOSTIC</span>
+                        <span class="largen-text">Largen</span>
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="form-container">
+                <h1 class="form-title">Yeni Hasta Kaydı</h1>
+                
+                <form id="hastaForm" class="patient-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hastaAdi">Hasta Adı</label>
+                            <input type="text" id="hastaAdi" name="hastaAdi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hastaSoyadi">Hasta Soyadı</label>
+                            <input type="text" id="hastaSoyadi" name="hastaSoyadi" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tc">T.C. Kimlik No</label>
+                            <input type="text" id="tc" name="tc" maxlength="11" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dogumTarihi">Doğum Tarihi</label>
+                            <input type="date" id="dogumTarihi" name="dogumTarihi" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cinsiyet">Cinsiyet</label>
+                            <select id="cinsiyet" name="cinsiyet" required>
+                                <option value="">Seçiniz</option>
+                                <option value="erkek">Erkek</option>
+                                <option value="kadin">Kadın</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="kanGrubu">Kan Grubu</label>
+                            <select id="kanGrubu" name="kanGrubu">
+                                <option value="">Seçiniz</option>
+                                <option value="A+">A Rh+</option>
+                                <option value="A-">A Rh-</option>
+                                <option value="B+">B Rh+</option>
+                                <option value="B-">B Rh-</option>
+                                <option value="AB+">AB Rh+</option>
+                                <option value="AB-">AB Rh-</option>
+                                <option value="0+">0 Rh+</option>
+                                <option value="0-">0 Rh-</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="alerji">Alerji Bilgileri</label>
+                            <input type="text" id="alerji" name="alerji" placeholder="Bilinen alerjiler varsa belirtiniz">
+                        </div>
+                        <div class="form-group">
+                            <label for="iletisim">İletişim</label>
+                            <input type="tel" id="iletisim" name="iletisim" placeholder="05xx xxx xx xx" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="adres">Adres</label>
+                        <textarea id="adres" name="adres" rows="3" placeholder="Ev adresi"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="formTemizle()">Temizle</button>
+                        <button type="submit" class="btn btn-primary">KAYDET</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div class="success-icon">✓</div>
+                <h2>Kayıt Başarılı!</h2>
+                <p>Hasta kaydı başarıyla oluşturuldu.</p>
+                <button class="btn btn-primary" onclick="yeniKayit()">Yeni Kayıt</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="yeni_kayit.js"></script>
+</body>
+</html>

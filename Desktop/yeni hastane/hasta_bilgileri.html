@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasta Bilgileri - Largen Diagnostic</title>
+    <link rel="stylesheet" href="hasta_bilgileri.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-circle">
+                        <div class="logo-symbol">L</div>
+                    </div>
+                    <span class="logo-text">
+                        <span class="diagnostic-text">DIAGNOSTIC</span>
+                        <span class="largen-text">Largen</span>
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Hasta Bilgileri</h1>
+                <div class="search-section">
+                    <div class="search-container">
+                        <input type="text" id="tcArama" placeholder="TC ile Hasta Ara" class="search-input">
+                        <button class="search-btn" onclick="aramaYap()">🔍</button>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" id="isimArama" placeholder="İsim Soyisim ile Hasta Ara" class="search-input">
+                        <button class="search-btn" onclick="isimArama()">🔍</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="table-wrapper">
+                    <table class="patients-table">
+                        <thead>
+                            <tr>
+                                <th>TC Kimlik No</th>
+                                <th>Hasta Adı</th>
+                                <th>Son Muayene Tarihi</th>
+                                <th>İletişim</th>
+                                <th>Bakiye</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody id="patientsTableBody">
+                            <!-- Örnek veri satırı -->
+                          
+                            
+                            <!-- Boş satırlar - MySQL entegrasyonu için hazır -->
+                            <tr class="patient-row empty-row">
+                                <td class="tc-column">-</td>
+                                <td class="name-column">-</td>
+                                <td class="date-column">-</td>
+                                <td class="contact-column">-</td>
+                                <td class="balance-column">-</td>
+                                <td class="actions-column">
+                                    <button class="btn-detail" disabled>Detay</button>
+                                    <button class="btn-edit" disabled>Düzenle</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="patient-row empty-row">
+                                <td class="tc-column">-</td>
+                                <td class="name-column">-</td>
+                                <td class="date-column">-</td>
+                                <td class="contact-column">-</td>
+                                <td class="balance-column">-</td>
+                                <td class="actions-column">
+                                    <button class="btn-detail" disabled>Detay</button>
+                                    <button class="btn-edit" disabled>Düzenle</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="patient-row empty-row">
+                                <td class="tc-column">-</td>
+                                <td class="name-column">-</td>
+                                <td class="date-column">-</td>
+                                <td class="contact-column">-</td>
+                                <td class="balance-column">-</td>
+                                <td class="actions-column">
+                                    <button class="btn-detail" disabled>Detay</button>
+                                    <button class="btn-edit" disabled>Düzenle</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="patient-row empty-row">
+                                <td class="tc-column">-</td>
+                                <td class="name-column">-</td>
+                                <td class="date-column">-</td>
+                                <td class="contact-column">-</td>
+                                <td class="balance-column">-</td>
+                                <td class="actions-column">
+                                    <button class="btn-detail" disabled>Detay</button>
+                                    <button class="btn-edit" disabled>Düzenle</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="patient-row empty-row">
+                                <td class="tc-column">-</td>
+                                <td class="name-column">-</td>
+                                <td class="date-column">-</td>
+                                <td class="contact-column">-</td>
+                                <td class="balance-column">-</td>
+                                <td class="actions-column">
+                                    <button class="btn-detail" disabled>Detay</button>
+                                    <button class="btn-edit" disabled>Düzenle</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="patient-row empty-row">
+                                <td class="tc-column">-</td>
+                                <td class="name-column">-</td>
+                                <td class="date-column">-</td>
+                                <td class="contact-column">-</td>
+                                <td class="balance-column">-</td>
+                                <td class="actions-column">
+                                    <button class="btn-detail" disabled>Detay</button>
+                                    <button class="btn-edit" disabled>Düzenle</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="patient-row empty-row">
+                                <td class="tc-column">-</td>
+                                <td class="name-column">-</td>
+                                <td class="date-column">-</td>
+                                <td class="contact-column">-</td>
+                                <td class="balance-column">-</td>
+                                <td class="actions-column">
+                                    <button class="btn-detail" disabled>Detay</button>
+                                    <button class="btn-edit" disabled>Düzenle</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="patient-row empty-row">
+                                <td class="tc-column">-</td>
+                                <td class="name-column">-</td>
+                                <td class="date-column">-</td>
+                                <td class="contact-column">-</td>
+                                <td class="balance-column">-</td>
+                                <td class="actions-column">
+                                    <button class="btn-detail" disabled>Detay</button>
+                                    <button class="btn-edit" disabled>Düzenle</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="patient-row empty-row">
+                                <td class="tc-column">-</td>
+                                <td class="name-column">-</td>
+                                <td class="date-column">-</td>
+                                <td class="contact-column">-</td>
+                                <td class="balance-column">-</td>
+                                <td class="actions-column">
+                                    <button class="btn-detail" disabled>Detay</button>
+                                    <button class="btn-edit" disabled>Düzenle</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="patient-row empty-row">
+                                <td class="tc-column">-</td>
+                                <td class="name-column">-</td>
+                                <td class="date-column">-</td>
+                                <td class="contact-column">-</td>
+                                <td class="balance-column">-</td>
+                                <td class="actions-column">
+                                    <button class="btn-detail" disabled>Detay</button>
+                                    <button class="btn-edit" disabled>Düzenle</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sayfalama -->
+            <div class="pagination">
+                <button class="page-btn" onclick="prevPage()" id="prevBtn">← Önceki</button>
+                <span class="page-info">
+                    Sayfa <span id="currentPage">1</span> / <span id="totalPages">1</span>
+                </span>
+                <button class="page-btn" onclick="nextPage()" id="nextBtn">Sonraki →</button>
+            </div>
+
+            <!-- İstatistikler -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalPatients">1</div>
+                    <div class="stat-label">Toplam Hasta</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalBalance">2,100 TL</div>
+                    <div class="stat-label">Toplam Bakiye</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="monthlyPatients">1</div>
+                    <div class="stat-label">Bu Ay Muayene</div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn-primary" onclick="yeniHastaEkle()">+ Yeni Hasta Ekle</button>
+                <button class="btn-secondary" onclick="exportToExcel()">📊 Excel'e Aktar</button>
+                <button class="btn-secondary" onclick="raporOlustur()">📄 Rapor Oluştur</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Hasta Detay Modal -->
+    <div id="patientDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h2>Hasta Detayları</h2>
+            </div>
+            <div class="modal-body" id="patientDetailContent">
+                <!-- Hasta detayları buraya yüklenecek -->
+            </div>
+        </div>
+    </div>
+
+    <script src="hasta_bilgileri.js"></script>
+</body>
+</html>

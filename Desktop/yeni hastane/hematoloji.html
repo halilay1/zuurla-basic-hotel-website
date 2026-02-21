@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Largen Diagnostic - Hematoloji Sonuç Kaydı</title>
+    <link rel="stylesheet" href="hematoloji.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-text">Ld</span>
+            </div>
+            <div class="brand-info">
+                <h1>Largen</h1>
+                <div class="subtitle">DIAGNOSTIC</div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-wrapper">
+                <!-- Sol Taraf - Hasta ve Kategori Seçimi -->
+                <div class="left-section">
+                    <h2>Hasta Sonuç Kaydı</h2>
+                    
+                    <!-- Hasta TC -->
+                    <div class="form-group">
+                        <label for="patientTC">Hasta TC</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="patientTC" class="form-input" placeholder="TC Kimlik No" maxlength="11">
+                            <button class="search-btn" onclick="searchPatient()" title="Hasta Ara">
+                                <span>🔍</span>
+                            </button>
+                        </div>
+                        <div class="auto-fill-text">bu iki alan hasta tc girince otomatik dolsun</div>
+                    </div>
+
+                    <!-- Hasta Bilgileri -->
+                    <div class="patient-info-row">
+                        <div class="form-group">
+                            <label for="patientName">Hasta Adı Soyadı</label>
+                            <div class="auto-fill-field">
+                                <span id="patientNameDisplay">Mustafa Gül</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="patientGender">Hasta Cinsiyeti</label>
+                            <div class="auto-fill-field">
+                                <span id="patientGenderDisplay">Erkek</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kategori Seçimi -->
+                    <div class="form-group">
+                        <label for="category">Kategori</label>
+                        <div class="dropdown-wrapper">
+                            <div class="dropdown-header" onclick="toggleDropdown('categoryDropdown')">
+                                <span id="categorySelected">Hematoloji</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-content" id="categoryDropdown">
+                                <div class="dropdown-item" onclick="selectCategory('Hematoloji')">Hematoloji</div>
+                                <div class="dropdown-item" onclick="selectCategory('İdrar')">İdrar</div>
+                                <div class="dropdown-item" onclick="selectCategory('Solunum Panel')">Solunum Panel</div>
+                                <div class="dropdown-item" onclick="selectCategory('Gaitalar')">Gaitalar</div>
+                                <div class="dropdown-item" onclick="selectCategory('Biyokimya')">Biyokimya</div>
+                                <div class="dropdown-item" onclick="selectCategory('Hormonlar')">Hormonlar</div>
+                                <div class="dropdown-item" onclick="selectCategory('İmmunoloji')">İmmunoloji</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sağ Taraf - Kategori Seçimi Bilgisi -->
+                <div class="right-section">
+                    <div class="category-info-card">
+                        <h3>Kategori</h3>
+                        <div class="selected-category" id="selectedCategoryInfo">
+                            <div class="category-name">Hematoloji</div>
+                            <div class="category-description">Kan sayımı ve kan hücreleri analizi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Sonuçları Bölümü -->
+            <div class="results-section">
+                <h3>Hematoloji</h3>
+                
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Sol Kolon -->
+                    <div class="results-column">
+                        <div class="result-item">
+                            <label>WBC</label>
+                            <input type="text" class="result-input" id="WBC" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>RBC</label>
+                            <input type="text" class="result-input" id="RBC" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>HGB</label>
+                            <input type="text" class="result-input" id="HGB" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>HCT</label>
+                            <input type="text" class="result-input" id="HCT" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>MCV</label>
+                            <input type="text" class="result-input" id="MCV" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>MCH</label>
+                            <input type="text" class="result-input" id="MCH" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>MCHC</label>
+                            <input type="text" class="result-input" id="MCHC" placeholder="Değer">
+                        </div>
+                    </div>
+
+                    <!-- Orta Kolon -->
+                    <div class="results-column">
+                        <div class="result-item">
+                            <label>NEU (%)</label>
+                            <input type="text" class="result-input" id="NEU_PERCENT" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>NEU</label>
+                            <input type="text" class="result-input" id="NEU" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>LYM (%)</label>
+                            <input type="text" class="result-input" id="LYM_PERCENT" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>LYM</label>
+                            <input type="text" class="result-input" id="LYM" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>MON (%)</label>
+                            <input type="text" class="result-input" id="MON_PERCENT" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>MON</label>
+                            <input type="text" class="result-input" id="MON" placeholder="Değer">
+                        </div>
+                    </div>
+
+                    <!-- Sağ Kolon -->
+                    <div class="results-column">
+                        <div class="result-item">
+                            <label>EOS (%)</label>
+                            <input type="text" class="result-input" id="EOS_PERCENT" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>EOS</label>
+                            <input type="text" class="result-input" id="EOS" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>BAS (%)</label>
+                            <input type="text" class="result-input" id="BAS_PERCENT" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>BAS</label>
+                            <input type="text" class="result-input" id="BAS" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>PLT</label>
+                            <input type="text" class="result-input" id="PLT" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>MPV</label>
+                            <input type="text" class="result-input" id="MPV" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>PDW</label>
+                            <input type="text" class="result-input" id="PDW" placeholder="Değer">
+                        </div>
+                        
+                        <div class="result-item">
+                            <label>PCT</label>
+                            <input type="text" class="result-input" id="PCT" placeholder="Değer">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="saveResults()">KAYDET PDF OLUŞTUR</button>
+                    <button class="btn btn-secondary" onclick="clearResults()">Temizle</button>
+                    <button class="btn btn-info" onclick="previewResults()">Önizleme</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Hasta Seçimi -->
+    <div class="modal" id="patientModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Hasta Seçimi</h3>
+                <span class="close" onclick="closePatientModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="search-section">
+                    <input type="text" id="patientSearch" class="form-input" placeholder="Hasta adı veya TC ile ara..." onkeyup="searchPatients()">
+                </div>
+                <div class="patients-list" id="patientsList">
+                    <!-- Hastalar buraya gelecek -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Sonuç Önizleme -->
+    <div class="modal" id="previewModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Sonuç Önizlemesi</h3>
+                <span class="close" onclick="closePreviewModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="preview-content" id="previewContent">
+                    <!-- Önizleme içeriği buraya gelecek -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="generatePDF()">PDF Oluştur</button>
+                <button class="btn btn-secondary" onclick="closePreviewModal()">Kapat</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="hematoloji.js"></script>
+</body>
+</html>

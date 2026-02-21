@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background circles */
+body::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    bottom: -300px;
+    right: -100px;
+    width: 800px;
+    height: 800px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 60px 50px;
+    background: white;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Header with logos */
+.header-logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.left-logo {
+    flex: 1;
+}
+
+.logo-text {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.logo-text .red {
+    color: #e53e3e;
+}
+
+.right-logo {
+    position: relative;
+    margin-left: 20px;
+}
+
+.diagnostic-label {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    font-size: 11px;
+    color: #666;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.largen-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+}
+
+.red-circle {
+    width: 60px;
+    height: 60px;
+    background: #e53e3e;
+    border-radius: 50%;
+    position: relative;
+    margin-top: 5px;
+}
+
+.red-circle::before,
+.red-circle::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.red-circle::before {
+    width: 16px;
+    height: 16px;
+    top: 10px;
+    left: 10px;
+}
+
+.red-circle::after {
+    width: 12px;
+    height: 12px;
+    bottom: 8px;
+    right: 8px;
+}
+
+/* Main content */
+.main-title {
+    font-size: 42px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+    transition: border-bottom-color 0.3s ease;
+}
+
+.form-input:focus {
+    border-bottom-color: #e53e3e;
+}
+
+/* Login button */
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background: #e53e3e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #d63031;
+}
+
+.login-btn:active {
+    transform: translateY(1px);
+}
+
+/* Contact section */
+.contact-section {
+    margin-top: 60px;
+}
+
+.contact-title {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-link {
+    display: block;
+    font-size: 14px;
+    color: #e53e3e;
+    text-decoration: none;
+    margin-bottom: 3px;
+    transition: text-decoration 0.3s ease;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
